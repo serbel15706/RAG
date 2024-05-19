@@ -468,7 +468,7 @@ with st.sidebar:
 
 # Include the upload form for new data to be Vectorized
 with st.sidebar:
-    uploaded_files = st.file_uploader(lang_dict['load_context'], type=['txt', 'pdf', 'csv'], accept_multiple_files=True)
+    uploaded_files = st.file_uploader(lang_dict['load_context'], type=['txt', 'pdf', 'csv','json'], accept_multiple_files=True)
     upload = st.button(lang_dict['load_context_button'])
     if upload and uploaded_files:
         vectorize_text(uploaded_files)
