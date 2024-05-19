@@ -23,6 +23,8 @@ from langchain.callbacks.base import BaseCallbackHandler
 
 import openai
 
+import json
+
 print("Started")
 st.set_page_config(page_title='Your Enterprise Sidekick', page_icon='🚀')
 
