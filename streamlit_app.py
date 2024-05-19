@@ -150,6 +150,24 @@ def vectorize_text(uploaded_files):
                 vectorstore.add_documents(docs)
                 st.info(f"{len(docs)} {lang_dict['load_csv']}")
 
+            # Process JSON
+            if uploaded_file.name.endswith('json'):
+                file_content = uploaded_file.read().decode()
+                json_data = json.loads(file_content)
+
+                # Convert JSON data to string format
+                json_str = json.dumps(json_data, indent=4)
+
+                text_splitter = RecursiveCharacterTextSplitter(
+                    chunk_size=1500,
+                    chunk_overlap=100
+                )
+
+                json_chunks = text_splitter.create_documents([json_str], [{'source': uploaded_file.name}])
+                vectorstore.add_documents(json_chunks)
+                st.info(f"{len(json_chunks)} {lang_dict['load_json']}")
+
+
 # Load data from URLs
 def vectorize_url(urls):
     # Create the text splitter
