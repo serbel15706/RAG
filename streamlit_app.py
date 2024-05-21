@@ -24,6 +24,7 @@ from langchain.callbacks.base import BaseCallbackHandler
 import openai
 
 import json
+import JSONLoader
 
 print("Started")
 st.set_page_config(page_title='Your Enterprise Sidekick', page_icon='🚀')
@@ -154,19 +155,35 @@ def vectorize_text(uploaded_files):
 
             # Process JSON
             if uploaded_file.name.endswith('json'):
-                file_content = uploaded_file.read().decode()
-                json_data = json.loads(file_content)
-
+                #file_content = uploaded_file.read().decode()
+                #json_data = json.loads(file_content)          
                 # Convert JSON data to string format
-                json_str = json.dumps(json_data, indent=4)
+                #json_str = json.dumps(json_data, indent=4)
 
-                text_splitter = RecursiveCharacterTextSplitter(
-                    chunk_size=1500,
-                    chunk_overlap=100
-                )
+               
 
-                json_chunks = text_splitter.create_documents([json_str], [{'source': uploaded_file.name}])
-                vectorstore.add_documents(json_chunks)
+                # Initialize text splitter
+                #text_splitter = RecursiveCharacterTextSplitter(chunk_size=100, chunk_overlap=20)
+
+                # Split documents into chunks
+                #chunked_documents = text_splitter.split_documents(documents)
+
+                #text_splitter = RecursiveCharacterTextSplitter(
+                #    chunk_size=1500,
+                #    chunk_overlap=100
+                #)
+
+                #json_chunks = text_splitter.create_documents([json_str], [{'source': uploaded_file.name}])
+                #vectorstore.add_documents(json_chunks)
+
+
+                docs = []
+                loader = JSONLoader(temp_filepath)
+                docs.extend(loader.load())
+                vectorstore.add_documents(docs)
+
+
+                
                 st.info(f"{len(json_chunks)} {lang_dict['load_json']}")
 
 
