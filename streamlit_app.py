@@ -24,7 +24,7 @@ from langchain.callbacks.base import BaseCallbackHandler
 import openai
 
 import json
-import JSONLoader
+from langchain_community.document_loaders import JSONLoader
 
 print("Started")
 st.set_page_config(page_title='Your Enterprise Sidekick', page_icon='🚀')
