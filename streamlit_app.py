@@ -178,7 +178,7 @@ def vectorize_text(uploaded_files):
 
 
                 docs = []
-                loader = JSONLoader(temp_filepath)
+                loader = JSONLoader(temp_filepath, jq_schema='.')
                 docs.extend(loader.load())
                 vectorstore.add_documents(docs)
 
