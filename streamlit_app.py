@@ -180,7 +180,7 @@ def vectorize_text(uploaded_files):
                 docs = []
                 loader = JSONLoader(temp_filepath, jq_schema='.')
                 docs.extend(loader.load())
-                 text_splitter = RecursiveCharacterTextSplitter(
+                text_splitter = RecursiveCharacterTextSplitter(
                     chunk_size = 1500,
                     chunk_overlap  = 100
                 )
