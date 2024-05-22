@@ -188,7 +188,7 @@ def vectorize_text(uploaded_files):
                 pages = text_splitter.split_documents(docs)
                 vectorstore.add_documents(pages)  
                 
-               st.info(f"{len(pages)} {lang_dict['load_json']}")
+                st.info(f"{len(pages)} {lang_dict['load_json']}")
 
 
 # Load data from URLs
