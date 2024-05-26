@@ -519,9 +519,9 @@ with st.sidebar:
     st.divider()
 
 # Draw rails
-with st.sidebar:
-        st.subheader(lang_dict['rails_1'])
-        st.caption(lang_dict['rails_2'])
+#with st.sidebar:
+        #st.subheader(lang_dict['rails_1'])
+        #st.caption(lang_dict['rails_2'])
         #for i in rails_dict:
             #st.markdown(f"{i}. {rails_dict[i]}")
 
