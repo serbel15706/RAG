@@ -1,4 +1,4 @@
-### Prueba RAG
-Prueba de chatbot RAG implementado con AstraDB, OpenAI y Streamlit
+### Chatbot test
+Prueba de chatbot implementado con AstraDB, OpenAI y Streamlit
 
 ---
