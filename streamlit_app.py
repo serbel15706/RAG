@@ -431,14 +431,14 @@ except:
 # Show a custom logo (svg or png) or the DataStax logo
 with st.sidebar:
     try:
-        st.image(f"""./customizations/logo/{username}.svg""", use_column_width="always")
+        #st.image(f"""./customizations/logo/{username}.svg""", use_column_width="always")
         st.text('')
     except:
         try:
-            st.image(f"""./customizations/logo/{username}.png""", use_column_width="always")
+            #st.image(f"""./customizations/logo/{username}.png""", use_column_width="always")
             st.text('')
         except:
-            st.image('./customizations/logo/default.svg', use_column_width="always")
+            #st.image('./customizations/logo/default.svg', use_column_width="always")
             st.text('')
 
 # Logout button
@@ -523,7 +523,7 @@ with st.sidebar:
         st.subheader(lang_dict['rails_1'])
         st.caption(lang_dict['rails_2'])
         for i in rails_dict:
-            st.markdown(f"{i}. {rails_dict[i]}")
+            #st.markdown(f"{i}. {rails_dict[i]}")
 
 # Draw all messages, both user and agent so far (every time the app reruns)
 for message in st.session_state.messages:
